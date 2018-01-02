@@ -8,6 +8,8 @@ var bodyParser = require("body-parser"),
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+var path = require('path');
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -22,6 +24,7 @@ var Blog = mongoose.model("Blog", blogSchema);
 
 //RESTFUL ROUTES
 
+//INDEX ROUTE
 app.get("/", function(req, res){
     res.redirect("/blogs");
 });
@@ -36,6 +39,14 @@ app.get("/blogs", function(req, res){
     });
     
 });
+
+//NEW ROUTE
+app.get("/blogs/new", function(req, res){
+    res.render("new");
+});
+
+//CREATE ROUTE
+
 
 
 app.listen(3000, '0.0.0.0', function(){
