@@ -1,0 +1,17 @@
+<% include ./partials/header %>
+<div class="ui main text container segment rounded">
+    <div class="ui huge header"><%= blog.title %></div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui image centered rounded" src="<%= blog.image %>" >            
+        </div>
+        <div class="content">
+            <span><%= blog.created.toString().substring(0,24) %></span>
+        </div>
+        <div class="description">
+            <%= blog.body %>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>
